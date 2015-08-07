@@ -1,0 +1,9 @@
+<h1>Suggestions</h1>
+
+<% suggested_words = [] %>
+<% @suggestions.elements.each('toplevel/CompleteSuggestion/suggestion') do |element| %>
+<p><%= element.attributes["data"] %></p>
+<% suggested_words << element.attributes["data"] %>
+<% end %>
+
+<%= button_to '関連語をDBに保存', saverecord_path, { suggested_words: suggested_words } %>

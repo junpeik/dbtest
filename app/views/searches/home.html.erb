@@ -1,0 +1,8 @@
+<h1>search</h1>
+
+<%= form_tag('/result') do %>
+<div>
+  <%= text_field_tag :search_word %>
+  <%= submit_tag '送信' %>
+</div>
+<% end %>

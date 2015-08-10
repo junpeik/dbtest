@@ -2,8 +2,9 @@
 
 <% suggested_words = [] %>
 <% @suggestions.elements.each('toplevel/CompleteSuggestion/suggestion') do |element| %>
-<p><%= element.attributes["data"] %></p>
-<% suggested_words << element.attributes["data"] %>
+  <p><%= element.attributes["data"] %></p>
+  <% next if suggested_words.length == 5 %>
+  <% suggested_words << element.attributes["data"] %>
 <% end %>
 
-<%= button_to '関連語をDBに保存', saverecord_path, { suggested_words: suggested_words } %>
+<%= button_to '関連語上位５件をDBに保存', saverecord_path, params: { searched_word: @search_word, suggested_words: suggested_words } %>

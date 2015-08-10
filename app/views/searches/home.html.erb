@@ -1,8 +1,19 @@
-<h1>search</h1>
+<h1>入力された単語の関連語を10個表示します</h1>
 
 <%= form_tag('/result') do %>
 <div>
-  <%= text_field_tag :search_word %>
+  <%= text_field_tag :search_word, "", placeholder: '単語を入力してください' %>
   <%= submit_tag '送信' %>
 </div>
+<% end %>
+
+<% unless @searched_words.empty? %>
+<p>これまでの検索結果</p>
+<ul>
+<% @searched_words.each do |word| %>
+  <li>
+    検索語：<%= word.search_word %>　関連語：<%= word.rel1 %>, <%= word.rel2 %>, <%= word.rel3 %>, <%= word.rel4 %>, <%= word.rel5 %>
+  </li>
+<% end %>
+</ul>
 <% end %>

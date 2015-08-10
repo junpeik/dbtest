@@ -1,0 +1,7 @@
+<ul>
+<% @words.each do |word| %>
+  <li><%= word %></li>
+<% end %>
+</ul>
+<p>以上がデータベースに保存されました。</p>
+<%= link_to 'トップへ戻る', root_path %>
